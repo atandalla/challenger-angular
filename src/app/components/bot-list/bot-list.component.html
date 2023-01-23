@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+
+<main id="main" class="main"> 
+<section class="section dashboard">
+    <div class="row">
+
+      <!-- Left side columns -->
+      <div class="col-lg-8">
+        <div class="row">
+      <!-- Sales Card -->
+      <div class="col-xxl-4 col-md-6" *ngFor="let bot of bots">
+        <div class="card info-card sales-card">
+
+          <div class="card-body">
+            <h5 class="card-title">{{bot.type}}</h5>
+            
+            <h5 class="card-title"><span>{{bot.name}}</span></h5>
+            <div class="d-flex align-items-center">
+              <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                <i class="bi bi-cart"></i>
+              </div>
+              <div class="ps-3">
+                <h6>{{bot.status}}</h6>
+                <span class="text-success small pt-1 fw-bold">Estado:</span> <span class="text-muted small pt-2 ps-1">{{bot.active}}</span>
+            
+              </div>
+            </div>
+            <br>
+            <button class="btn btn-danger" style="display: block;width: -webkit-fill-available; " (click)="deleteBot(bot._id)">
+                Borrar
+            </button>
+            <button class="btn btn-primary" style="display: block;width: -webkit-fill-available;margin-top: 0.8rem;" [routerLink]="['/edit-config-bot', bot._id]">
+                Editar
+            </button>
+          </div>
+
+        </div>
+    </div>
+  </div>
+        </div>
+      </div><!-- End Sales Card -->
+</section>
+</main>
